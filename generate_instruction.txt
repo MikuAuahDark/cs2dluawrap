@@ -1,0 +1,2 @@
+luajit generate_func.lua cs2dluafunc.h address_win.lua > address/win_1.0.1.1.h
+luajit generate_def.lua cs2dluafunc.h > cs2dluawrap.c
