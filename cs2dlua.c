@@ -31,6 +31,7 @@
 #include "lualib.h"
 #include "lauxlib.h"
 
+
 /* Platform selection */
 #if defined(_WIN32)
 #	define CS2DLUA_TARGET_WIN
@@ -40,7 +41,7 @@
 #	error "Patches welcome for macOS!"
 #else
 #	define CS2DLUA_TARGET_LINUX
-#	error "TODO Linux"
+#	include "address/linux_1.0.1.1.h"
 #endif
 
 /* CS2D is 32-bit only in Windows and Linux */
@@ -138,13 +139,35 @@ int cs2dlua_init(size_t baseAddress)
 BOOL APIENTRY DllMain(HINSTANCE _, DWORD reason, LPVOID __)
 {
 	if (reason == DLL_PROCESS_ATTACH)
-	{
 		return cs2dlua_init((size_t) GetModuleHandleA(NULL));
-	}
 }
 
 #elif defined(CS2DLUA_TARGET_LINUX)
-#	error "TODO Linux"
+
+
+__attribute__ ((constructor)) void DllMain(void)
+{
+	char _dummy[sizeof (unsigned long) == 4 ? 4 : -1];
+	FILE *f = fopen("/proc/self/maps", "r");
+
+	if (f)
+	{
+		// First 8 bytes only
+		char addr[9];
+		addr[8] = 0;
+
+		if (fread(addr, 1, 8, f) == 8)
+		{
+			size_t address = (size_t) strtoul(addr, NULL, 16);
+
+			if (address)
+				cs2dlua_init(address);
+		}
+
+		fclose(f);
+	}
+}
+
 #elif defined(CS2DLUA_TARGET_MAC)
 #	error "Patches welcome for macOS!"
 #else

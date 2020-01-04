@@ -1,4 +1,4 @@
--- All address are: module+(dedicated OR client)+lua* functons
+-- All address are: module+(dedicated OR client)+lua* functions
 -- windows
 local w = {}
 local winData = {

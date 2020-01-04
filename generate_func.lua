@@ -123,7 +123,7 @@ for _, line in ipairs(lines) do
 		end
 	end
 
-	local useLuaLib = name:find("luaL_") == 1 or name:find("luaopen_") == 1
+	local useLuaLib = name:find("lua_") == nil
 
 	if undef then
 		io.write("/*\n")
