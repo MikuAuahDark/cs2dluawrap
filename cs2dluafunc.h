@@ -41,7 +41,7 @@ typedef struct LuaFunctionPointer
 	/* Offset */
 	void *dedicatedOffset, *clientOffset;
 	void *findDedicatedOffset, *findClientOffset;
-	const char *findMatch;
+	unsigned int checksumDedicated, checksumClient;
 
 	/* State manipulation */
 	/*MATCHGEN*/lua_State*   (*lua_newstate) (lua_Alloc, void*);

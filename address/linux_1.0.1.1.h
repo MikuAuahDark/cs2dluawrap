@@ -5,7 +5,7 @@
 LuaFunctionPointer luaFunction = {
 	(void*) 16432U, (void*) 40928U,
 	(void*) 3988496U, (void*) 5087048U,
-	"1.0.1.1",
+	1146730140U, 315771435U,
 	/* lua_newstate */ (lua_State*(*)(lua_Alloc, void*)) 66320,
 	/* lua_close */ (void(*)(lua_State*)) 66800,
 	/* lua_newthread */ (lua_State*(*)(lua_State*)) 29232,

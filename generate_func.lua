@@ -43,7 +43,7 @@ io.write("\t(void*) ", addressList.dedicated, "U, (void*) ", addressList.client,
 -- Find matcher address
 io.write("\t(void*) ", addressList.findDedicated, "U, (void*) ", addressList.findClient, "U,\n")
 -- Match string
-io.write("\t", string.format("%q", addressList.match), ",\n")
+io.write("\t", addressList.checksumDedicated, "U, ", addressList.checksumClient, "U,\n")
 
 local function trim(s)
 	return (s:gsub("^%s*(.-)%s*$", "%1"))

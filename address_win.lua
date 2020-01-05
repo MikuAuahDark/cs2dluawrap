@@ -5,7 +5,8 @@ local winData = {
 	dedicated = 0x1510, client = 0x1510,
 	findDedicated = 0x341a60+0x2600,
 	findClient = 0x495588+0x1600,
-	match = "1.0.1.1",
+	checksumDedicated = 0xD5D6574A,
+	checksumClient = 0xB396BE59,
 	functions = w,
 }
 w.luaL_where = 0x0

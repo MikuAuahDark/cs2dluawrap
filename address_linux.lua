@@ -5,7 +5,8 @@ local linuxData = {
 	-- base: 8048000
 	dedicated = 0x4030 --[[0x804C030]], client = 0x4030+0x5FB0, --[[0x8051FE0]]
 	findDedicated = 0x3CDC10, findClient = 0x4D9F48,
-	match = "1.0.1.1",
+	checksumDedicated = 0x4459B69C,
+	checksumClient = 0x12D24A2B,
 	functions = l
 }
 l.luaopen_debug = 0x0 --[[0x804C030]]
