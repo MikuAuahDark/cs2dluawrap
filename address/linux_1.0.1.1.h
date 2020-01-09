@@ -6,126 +6,126 @@ LuaFunctionPointer luaFunction = {
 	(void*) 16432U, (void*) 40928U,
 	(void*) 3988496U, (void*) 5087048U,
 	1146730140U, 315771435U,
-	/* lua_newstate */ (lua_State*(*)(lua_Alloc, void*)) 66320,
-	/* lua_close */ (void(*)(lua_State*)) 66800,
-	/* lua_newthread */ (lua_State*(*)(lua_State*)) 29232,
-	/* lua_atpanic */ (lua_CFunction(*)(lua_State*, lua_CFunction)) 29200,
-	/* lua_gettop */ (int(*)(lua_State*)) 29296,
-	/* lua_settop */ (void(*)(lua_State*, int)) 29328,
-	/* lua_pushvalue */ (void(*)(lua_State*, int)) 29808,
-	/* lua_remove */ (void(*)(lua_State*, int)) 29408,
-	/* lua_insert */ (void(*)(lua_State*, int)) 29488,
-	/* lua_replace */ (void(*)(lua_State*, int)) 29568,
-	/* lua_checkstack */ (int(*)(lua_State*, int)) 28928,
-	/* lua_xmove */ (void(*)(lua_State*, lua_State*, int)) 29056,
-	/* lua_isnumber */ (int(*)(lua_State*, int)) 29968,
-	/* lua_isstring */ (int(*)(lua_State*, int)) 30064,
-	/* lua_iscfunction */ (int(*)(lua_State*, int)) 29920,
-	/* lua_isuserdata */ (int(*)(lua_State*, int)) 30112,
-	/* lua_type */ (int(*)(lua_State*, int)) 29856,
-	/* lua_typename */ (const char*(*)(lua_State*, int)) 29888,
-	/* lua_equal */ (int(*)(lua_State*, int, int)) 30240,
-	/* lua_rawequal */ (int(*)(lua_State*, int, int)) 30160,
-	/* lua_lessthan */ (int(*)(lua_State*, int, int)) 30352,
-	/* lua_tonumber */ (lua_Number(*)(lua_State*, int)) 30432,
-	/* lua_tointeger */ (lua_Integer(*)(lua_State*, int)) 30528,
-	/* lua_toboolean */ (int(*)(lua_State*, int)) 30640,
-	/* lua_tolstring */ (const char*(*)(lua_State*, int, size_t*)) 30704,
-	/* lua_objlen */ (size_t(*)(lua_State*, int)) 30848,
-	/* lua_tocfunction */ (lua_CFunction(*)(lua_State*, int)) 30976,
-	/* lua_touserdata */ (void*(*)(lua_State*, int)) 31024,
-	/* lua_tothread */ (lua_State*(*)(lua_State*, int)) 31072,
-	/* lua_topointer */ (const void*(*)(lua_State*, int)) 31104,
-	/* lua_pushnil */ (void(*)(lua_State*)) 31184,
-	/* lua_pushnumber */ (void(*)(lua_State*, lua_Number)) 31216,
-	/* lua_pushinteger */ (void(*)(lua_State*, lua_Integer)) 31248,
-	/* lua_pushlstring */ (void(*)(lua_State*, const char*, size_t)) 31280,
-	/* lua_pushstring */ (void(*)(lua_State*, const char*)) 31360,
-	/* lua_pushvfstring */ (const char*(*)(lua_State*, const char*, va_list)) 31440,
-	/* lua_pushcclosure */ (void(*)(lua_State*, lua_CFunction, int)) 31568,
-	/* lua_pushboolean */ (void(*)(lua_State*, int)) 31776,
-	/* lua_pushlightuserdata */ (void(*)(lua_State*, void*)) 31808,
-	/* lua_pushthread */ (int(*)(lua_State*)) 31840,
-	/* lua_gettable */ (void(*)(lua_State*, int)) 31888,
-	/* lua_getfield */ (void(*)(lua_State*, int, const char*)) 31936,
-	/* lua_rawget */ (void(*)(lua_State*, int)) 32064,
-	/* lua_rawgeti */ (void(*)(lua_State*, int, int)) 32128,
-	/* lua_createtable */ (void(*)(lua_State*, int, int)) 32192,
-	/* lua_newuserdata */ (void*(*)(lua_State*, size_t)) 34464,
-	/* lua_getmetatable */ (int(*)(lua_State*, int)) 32272,
-	/* lua_getfenv */ (void(*)(lua_State*, int)) 32368,
-	/* lua_settable */ (void(*)(lua_State*, int)) 32480,
-	/* lua_setfield */ (void(*)(lua_State*, int, const char*)) 32528,
-	/* lua_rawset */ (void(*)(lua_State*, int)) 32656,
-	/* lua_rawseti */ (void(*)(lua_State*, int, int)) 32784,
-	/* lua_setmetatable */ (int(*)(lua_State*, int)) 32912,
-	/* lua_setfenv */ (int(*)(lua_State*, int)) 33120,
-	/* lua_call */ (void(*)(lua_State*, int, int)) 33312,
-	/* lua_pcall */ (int(*)(lua_State*, int, int, int)) 33408,
-	/* lua_cpcall */ (int(*)(lua_State*, lua_CFunction, void*)) 33584,
-	/* lua_load */ (int(*)(lua_State*, lua_Reader, void*, const char*)) 33680,
-	/* lua_dump */ (int(*)(lua_State*, lua_Writer, void*)) 33776,
-	/* lua_yield */ (int(*)(lua_State*, int)) 58800,
-	/* lua_resume */ (int(*)(lua_State*, int)) 58624,
-	/* lua_status */ (int(*)(lua_State*)) 33856,
-	/* lua_gc */ (int(*)(lua_State*, int, int)) 33872,
-	/* lua_error */ (int(*)(lua_State*)) 34144,
-	/* lua_next */ (int(*)(lua_State*, int)) 34176,
-	/* lua_concat */ (void(*)(lua_State*, int)) 34256,
-	/* lua_getallocf */ (lua_Alloc(*)(lua_State*, void**)) 2147483647,
-	/* lua_setallocf */ (void(*)(lua_State*, lua_Alloc,void*)) 2147483647,
-	/* lua_getstack */ (int(*)(lua_State*, int, lua_Debug*)) 37472,
-	/* lua_getinfo */ (int(*)(lua_State*, const char*, lua_Debug*)) 37776,
-	/* lua_getlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 2147483647,
-	/* lua_setlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 2147483647,
-	/* lua_getupvalue */ (const char*(*)(lua_State*, int, int)) 2147483647,
-	/* lua_setupvalue */ (const char*(*)(lua_State*, int, int)) 2147483647,
-	/* lua_sethook */ (int(*)(lua_State*, lua_Hook, int, int)) 2147483647,
-	/* lua_gethook */ (lua_Hook(*)(lua_State*)) 2147483647,
-	/* lua_gethookmask */ (int(*)(lua_State*)) 2147483647,
-	/* lua_gethookcount */ (int(*)(lua_State*)) 2147483647,
-	/* luaopen_base */ (int(*)(lua_State*)) 28128,
-	/* luaopen_table */ (int(*)(lua_State*)) 2464,
-	/* luaopen_io */ (int(*)(lua_State*)) 17296,
-	/* luaopen_os */ (int(*)(lua_State*)) 68992,
-	/* luaopen_string */ (int(*)(lua_State*)) 10448,
-	/* luaopen_math */ (int(*)(lua_State*)) 12992,
-	/* luaopen_debug */ (int(*)(lua_State*)) 0,
-	/* luaopen_package */ (int(*)(lua_State*)) 72016,
-	/* luaL_openlibs */ (void(*)(lua_State*)) 2147483647,
-	/* luaI_openlib */ (void(*)(lua_State*, const char*, const luaL_Reg*, int)) 20400,
-	/* luaL_register */ (void(*)(lua_State*, const char*, const luaL_Reg*)) 20784,
-	/* luaL_getmetafield */ (int(*)(lua_State*, int, const char*)) 19872,
-	/* luaL_callmeta */ (int(*)(lua_State*, int, const char*)) 20000,
-	/* luaL_typerror */ (int(*)(lua_State*, int, const char*)) 18592,
-	/* luaL_argerror */ (int(*)(lua_State*, int, const char*)) 18352,
-	/* luaL_checklstring */ (const char*(*)(lua_State*, int, size_t*)) 19152,
-	/* luaL_optlstring */ (const char*(*)(lua_State*, int, const char*, size_t*)) 19232,
-	/* luaL_checknumber */ (lua_Number(*)(lua_State*, int)) 19520,
-	/* luaL_optnumber */ (lua_Number(*)(lua_State*, int, lua_Number)) 19632,
-	/* luaL_checkinteger */ (lua_Integer(*)(lua_State*, int)) 19712,
-	/* luaL_optinteger */ (lua_Integer(*)(lua_State*, int, lua_Integer)) 19808,
-	/* luaL_checkstack */ (void(*)(lua_State*, int, const char*)) 18928,
-	/* luaL_checktype */ (void(*)(lua_State*, int, int)) 19008,
-	/* luaL_checkany */ (void(*)(lua_State*, int)) 19088,
-	/* luaL_newmetatable */ (int(*)(lua_State*, const char*)) 18672,
-	/* luaL_checkudata */ (void*(*)(lua_State*, int, const char*)) 18784,
-	/* luaL_where */ (void(*)(lua_State*, int)) 18128,
-	/* luaL_checkoption */ (int(*)(lua_State*, int, const char*, const char* const*)) 19344,
-	/* luaL_ref */ (int(*)(lua_State*, int)) 21568,
-	/* luaL_unref */ (void(*)(lua_State*, int, int)) 21776,
-	/* luaL_loadfile */ (int(*)(lua_State*, const char*)) 21904,
-	/* luaL_loadbuffer */ (int(*)(lua_State*, const char*, size_t, const char*)) 22608,
-	/* luaL_loadstring */ (int(*)(lua_State*, const char*)) 22688,
-	/* luaL_newstate */ (lua_State*(*)(void)) 22784,
-	/* luaL_gsub */ (const char*(*)(lua_State*, const char*, const char*, const char*)) 21056,
-	/* luaL_findtable */ (const char*(*)(lua_State*, int, const char*, int)) 20112,
-	/* luaL_buffinit */ (void(*)(lua_State*, luaL_Buffer*)) 21536,
-	/* luaL_prepbuffer */ (char*(*)(luaL_Buffer*)) 20816,
-	/* luaL_addlstring */ (void(*)(luaL_Buffer*, const char*, size_t)) 20864,
-	/* luaL_addstring */ (void(*)(luaL_Buffer*, const char*)) 20960,
-	/* luaL_addvalue */ (void(*)(luaL_Buffer*)) 21328,
-	/* luaL_pushresult */ (void(*)(luaL_Buffer*)) 21008,
+	/* lua_newstate */ (lua_State*(*)(lua_Alloc, void*)) 66320U,
+	/* lua_close */ (void(*)(lua_State*)) 66800U,
+	/* lua_newthread */ (lua_State*(*)(lua_State*)) 29232U,
+	/* lua_atpanic */ (lua_CFunction(*)(lua_State*, lua_CFunction)) 29200U,
+	/* lua_gettop */ (int(*)(lua_State*)) 29296U,
+	/* lua_settop */ (void(*)(lua_State*, int)) 29328U,
+	/* lua_pushvalue */ (void(*)(lua_State*, int)) 29808U,
+	/* lua_remove */ (void(*)(lua_State*, int)) 29408U,
+	/* lua_insert */ (void(*)(lua_State*, int)) 29488U,
+	/* lua_replace */ (void(*)(lua_State*, int)) 29568U,
+	/* lua_checkstack */ (int(*)(lua_State*, int)) 28928U,
+	/* lua_xmove */ (void(*)(lua_State*, lua_State*, int)) 29056U,
+	/* lua_isnumber */ (int(*)(lua_State*, int)) 29968U,
+	/* lua_isstring */ (int(*)(lua_State*, int)) 30064U,
+	/* lua_iscfunction */ (int(*)(lua_State*, int)) 29920U,
+	/* lua_isuserdata */ (int(*)(lua_State*, int)) 30112U,
+	/* lua_type */ (int(*)(lua_State*, int)) 29856U,
+	/* lua_typename */ (const char*(*)(lua_State*, int)) 29888U,
+	/* lua_equal */ (int(*)(lua_State*, int, int)) 30240U,
+	/* lua_rawequal */ (int(*)(lua_State*, int, int)) 30160U,
+	/* lua_lessthan */ (int(*)(lua_State*, int, int)) 30352U,
+	/* lua_tonumber */ (lua_Number(*)(lua_State*, int)) 30432U,
+	/* lua_tointeger */ (lua_Integer(*)(lua_State*, int)) 30528U,
+	/* lua_toboolean */ (int(*)(lua_State*, int)) 30640U,
+	/* lua_tolstring */ (const char*(*)(lua_State*, int, size_t*)) 30704U,
+	/* lua_objlen */ (size_t(*)(lua_State*, int)) 30848U,
+	/* lua_tocfunction */ (lua_CFunction(*)(lua_State*, int)) 30976U,
+	/* lua_touserdata */ (void*(*)(lua_State*, int)) 31024U,
+	/* lua_tothread */ (lua_State*(*)(lua_State*, int)) 31072U,
+	/* lua_topointer */ (const void*(*)(lua_State*, int)) 31104U,
+	/* lua_pushnil */ (void(*)(lua_State*)) 31184U,
+	/* lua_pushnumber */ (void(*)(lua_State*, lua_Number)) 31216U,
+	/* lua_pushinteger */ (void(*)(lua_State*, lua_Integer)) 31248U,
+	/* lua_pushlstring */ (void(*)(lua_State*, const char*, size_t)) 31280U,
+	/* lua_pushstring */ (void(*)(lua_State*, const char*)) 31360U,
+	/* lua_pushvfstring */ (const char*(*)(lua_State*, const char*, va_list)) 31440U,
+	/* lua_pushcclosure */ (void(*)(lua_State*, lua_CFunction, int)) 31568U,
+	/* lua_pushboolean */ (void(*)(lua_State*, int)) 31776U,
+	/* lua_pushlightuserdata */ (void(*)(lua_State*, void*)) 31808U,
+	/* lua_pushthread */ (int(*)(lua_State*)) 31840U,
+	/* lua_gettable */ (void(*)(lua_State*, int)) 31888U,
+	/* lua_getfield */ (void(*)(lua_State*, int, const char*)) 31936U,
+	/* lua_rawget */ (void(*)(lua_State*, int)) 32064U,
+	/* lua_rawgeti */ (void(*)(lua_State*, int, int)) 32128U,
+	/* lua_createtable */ (void(*)(lua_State*, int, int)) 32192U,
+	/* lua_newuserdata */ (void*(*)(lua_State*, size_t)) 34464U,
+	/* lua_getmetatable */ (int(*)(lua_State*, int)) 32272U,
+	/* lua_getfenv */ (void(*)(lua_State*, int)) 32368U,
+	/* lua_settable */ (void(*)(lua_State*, int)) 32480U,
+	/* lua_setfield */ (void(*)(lua_State*, int, const char*)) 32528U,
+	/* lua_rawset */ (void(*)(lua_State*, int)) 32656U,
+	/* lua_rawseti */ (void(*)(lua_State*, int, int)) 32784U,
+	/* lua_setmetatable */ (int(*)(lua_State*, int)) 32912U,
+	/* lua_setfenv */ (int(*)(lua_State*, int)) 33120U,
+	/* lua_call */ (void(*)(lua_State*, int, int)) 33312U,
+	/* lua_pcall */ (int(*)(lua_State*, int, int, int)) 33408U,
+	/* lua_cpcall */ (int(*)(lua_State*, lua_CFunction, void*)) 33584U,
+	/* lua_load */ (int(*)(lua_State*, lua_Reader, void*, const char*)) 33680U,
+	/* lua_dump */ (int(*)(lua_State*, lua_Writer, void*)) 33776U,
+	/* lua_yield */ (int(*)(lua_State*, int)) 58800U,
+	/* lua_resume */ (int(*)(lua_State*, int)) 58624U,
+	/* lua_status */ (int(*)(lua_State*)) 33856U,
+	/* lua_gc */ (int(*)(lua_State*, int, int)) 33872U,
+	/* lua_error */ (int(*)(lua_State*)) 34144U,
+	/* lua_next */ (int(*)(lua_State*, int)) 34176U,
+	/* lua_concat */ (void(*)(lua_State*, int)) 34256U,
+	/* lua_getallocf */ (lua_Alloc(*)(lua_State*, void**)) 34400U,
+	/* lua_setallocf */ (void(*)(lua_State*, lua_Alloc,void*)) 34432U,
+	/* lua_getstack */ (int(*)(lua_State*, int, lua_Debug*)) 37472U,
+	/* lua_getinfo */ (int(*)(lua_State*, const char*, lua_Debug*)) 37776U,
+	/* lua_getlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 37600U,
+	/* lua_setlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 37696U,
+	/* lua_getupvalue */ (const char*(*)(lua_State*, int, int)) 34576U,
+	/* lua_setupvalue */ (const char*(*)(lua_State*, int, int)) 34688U,
+	/* lua_sethook */ (int(*)(lua_State*, lua_Hook, int, int)) 2147483647U,
+	/* lua_gethook */ (lua_Hook(*)(lua_State*)) 2147483647U,
+	/* lua_gethookmask */ (int(*)(lua_State*)) 2147483647U,
+	/* lua_gethookcount */ (int(*)(lua_State*)) 2147483647U,
+	/* luaopen_base */ (int(*)(lua_State*)) 28128U,
+	/* luaopen_table */ (int(*)(lua_State*)) 2464U,
+	/* luaopen_io */ (int(*)(lua_State*)) 17296U,
+	/* luaopen_os */ (int(*)(lua_State*)) 68992U,
+	/* luaopen_string */ (int(*)(lua_State*)) 10448U,
+	/* luaopen_math */ (int(*)(lua_State*)) 12992U,
+	/* luaopen_debug */ (int(*)(lua_State*)) 0U,
+	/* luaopen_package */ (int(*)(lua_State*)) 72016U,
+	/* luaL_openlibs */ (void(*)(lua_State*)) 4294963312U,
+	/* luaI_openlib */ (void(*)(lua_State*, const char*, const luaL_Reg*, int)) 20400U,
+	/* luaL_register */ (void(*)(lua_State*, const char*, const luaL_Reg*)) 20784U,
+	/* luaL_getmetafield */ (int(*)(lua_State*, int, const char*)) 19872U,
+	/* luaL_callmeta */ (int(*)(lua_State*, int, const char*)) 20000U,
+	/* luaL_typerror */ (int(*)(lua_State*, int, const char*)) 18592U,
+	/* luaL_argerror */ (int(*)(lua_State*, int, const char*)) 18352U,
+	/* luaL_checklstring */ (const char*(*)(lua_State*, int, size_t*)) 19152U,
+	/* luaL_optlstring */ (const char*(*)(lua_State*, int, const char*, size_t*)) 19232U,
+	/* luaL_checknumber */ (lua_Number(*)(lua_State*, int)) 19520U,
+	/* luaL_optnumber */ (lua_Number(*)(lua_State*, int, lua_Number)) 19632U,
+	/* luaL_checkinteger */ (lua_Integer(*)(lua_State*, int)) 19712U,
+	/* luaL_optinteger */ (lua_Integer(*)(lua_State*, int, lua_Integer)) 19808U,
+	/* luaL_checkstack */ (void(*)(lua_State*, int, const char*)) 18928U,
+	/* luaL_checktype */ (void(*)(lua_State*, int, int)) 19008U,
+	/* luaL_checkany */ (void(*)(lua_State*, int)) 19088U,
+	/* luaL_newmetatable */ (int(*)(lua_State*, const char*)) 18672U,
+	/* luaL_checkudata */ (void*(*)(lua_State*, int, const char*)) 18784U,
+	/* luaL_where */ (void(*)(lua_State*, int)) 18128U,
+	/* luaL_checkoption */ (int(*)(lua_State*, int, const char*, const char* const*)) 19344U,
+	/* luaL_ref */ (int(*)(lua_State*, int)) 21568U,
+	/* luaL_unref */ (void(*)(lua_State*, int, int)) 21776U,
+	/* luaL_loadfile */ (int(*)(lua_State*, const char*)) 21904U,
+	/* luaL_loadbuffer */ (int(*)(lua_State*, const char*, size_t, const char*)) 22608U,
+	/* luaL_loadstring */ (int(*)(lua_State*, const char*)) 22688U,
+	/* luaL_newstate */ (lua_State*(*)(void)) 22784U,
+	/* luaL_gsub */ (const char*(*)(lua_State*, const char*, const char*, const char*)) 21056U,
+	/* luaL_findtable */ (const char*(*)(lua_State*, int, const char*, int)) 20112U,
+	/* luaL_buffinit */ (void(*)(lua_State*, luaL_Buffer*)) 21536U,
+	/* luaL_prepbuffer */ (char*(*)(luaL_Buffer*)) 20816U,
+	/* luaL_addlstring */ (void(*)(luaL_Buffer*, const char*, size_t)) 20864U,
+	/* luaL_addstring */ (void(*)(luaL_Buffer*, const char*)) 20960U,
+	/* luaL_addvalue */ (void(*)(luaL_Buffer*)) 21328U,
+	/* luaL_pushresult */ (void(*)(luaL_Buffer*)) 21008U,
 };
 
 LUA_API lua_State* lua_newstate(lua_Alloc a, void* b)
@@ -458,19 +458,15 @@ LUA_API void lua_concat(lua_State* a, int b)
 	luaFunction.lua_concat(a, b);
 }
 
-/*
 LUA_API lua_Alloc lua_getallocf(lua_State* a, void** b)
 {
 	return luaFunction.lua_getallocf(a, b);
 }
-*/
 
-/*
 LUA_API void lua_setallocf(lua_State* a, lua_Alloc b, void* c)
 {
 	luaFunction.lua_setallocf(a, b, c);
 }
-*/
 
 LUA_API int lua_getstack(lua_State* a, int b, lua_Debug* c)
 {
@@ -482,33 +478,25 @@ LUA_API int lua_getinfo(lua_State* a, const char* b, lua_Debug* c)
 	return luaFunction.lua_getinfo(a, b, c);
 }
 
-/*
 LUA_API const char* lua_getlocal(lua_State* a, const lua_Debug* b, int c)
 {
 	return luaFunction.lua_getlocal(a, b, c);
 }
-*/
 
-/*
 LUA_API const char* lua_setlocal(lua_State* a, const lua_Debug* b, int c)
 {
 	return luaFunction.lua_setlocal(a, b, c);
 }
-*/
 
-/*
 LUA_API const char* lua_getupvalue(lua_State* a, int b, int c)
 {
 	return luaFunction.lua_getupvalue(a, b, c);
 }
-*/
 
-/*
 LUA_API const char* lua_setupvalue(lua_State* a, int b, int c)
 {
 	return luaFunction.lua_setupvalue(a, b, c);
 }
-*/
 
 /*
 LUA_API int lua_sethook(lua_State* a, lua_Hook b, int c, int d)
@@ -578,12 +566,10 @@ LUALIB_API int luaopen_package(lua_State* a)
 	return luaFunction.luaopen_package(a);
 }
 
-/*
 LUALIB_API void luaL_openlibs(lua_State* a)
 {
 	luaFunction.luaL_openlibs(a);
 }
-*/
 
 LUALIB_API void luaI_openlib(lua_State* a, const char* b, const luaL_Reg* c, int d)
 {

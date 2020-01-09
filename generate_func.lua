@@ -28,6 +28,7 @@ local addressList = assert(arg[2], "addresslist.lua")
 
 -- Load address list
 addressList = assert(loadfile(addressList))()
+local intSuffix = addressList.x64 and "ULL" or "U"
 
 -- Write header
 io.write((([[
@@ -94,7 +95,8 @@ for _, line in ipairs(lines) do
 		params[i] = trim(params[i])
 	end
 
-	io.write("\t/* ", name, " */ (", retType, "(*)(", paramList, ")) ", addressList.functions[name] or 2147483647, ",\n")
+	local funcPtr = (addressList.functions[name] or 2147483647) % 4294967296
+	io.write("\t/* ", name, " */ (", retType, "(*)(", paramList, ")) ", funcPtr, intSuffix, ",\n")
 end
 
 io.write("};\n\n")

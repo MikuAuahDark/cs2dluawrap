@@ -121,5 +121,12 @@ l.lua_newstate = 0x10310 --[[0x805C340]]
 l.lua_close = 0x104F0 --[[0x805C520]]
 l.luaopen_os = 0x10D80 --[[0x805CDB0]]
 l.luaopen_package = 0x11950 --[[0x805D980]]
+l.lua_getallocf = 0x8660 --[[0x8054690]]
+l.lua_setallocf = 0x8680 --[[0x80546B0]]
+l.luaL_openlibs = -0xF90 --[[0x0804B0A0]]
+l.lua_getlocal = 0x92E0 --[[0x8055310]]
+l.lua_setlocal = 0x9340 --[[0x8055370]]
+l.lua_getupvalue = 0x8710 --[[0x8054740]]
+l.lua_setupvalue = 0x8780 --[[0x80547b0]]
 
 return linuxData
