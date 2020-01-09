@@ -3,6 +3,7 @@
 local w = {}
 local winData = {
 	dedicated = 0x1510, client = 0x1510,
+	-- Offset is relative to luaL_where
 	findDedicated = 0x341a60+0x2600,
 	findClient = 0x495588+0x1600,
 	checksumDedicated = 0xD5D6574A,
