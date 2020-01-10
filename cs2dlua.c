@@ -134,7 +134,8 @@ static int cs2dlua_init(size_t baseAddress, FILE *exe)
 	unsigned char fileByte;
 	unsigned int crcExe = 0xFFFFFFFF;
 	short *pattern = NULL;
-	size_t *luaFuncPtr, i;
+	size_t *luaFuncPtr;
+	size_t i = ((size_t) &luaFunction.lua_newstate) - ((size_t) &luaFunction) / sizeof(void*);
 
 	/* If match field is NULL that means it's initialized */
 	if (initialized != 0)
@@ -160,7 +161,7 @@ static int cs2dlua_init(size_t baseAddress, FILE *exe)
 	/* Load offset */
 	targetOffset += baseAddress;
 	luaFuncPtr = (size_t *) &luaFunction;
-	for (i = 6; i < sizeof(LuaFunctionPointer)/sizeof(void*); i++)
+	for (; i < sizeof(LuaFunctionPointer)/sizeof(void*); i++)
 	{
 		if (luaFuncPtr[i] == 0x7FFFFFFF)
 			luaFuncPtr[i] = 0;

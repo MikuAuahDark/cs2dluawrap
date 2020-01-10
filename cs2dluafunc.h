@@ -40,7 +40,6 @@ typedef struct LuaFunctionPointer
 {
 	/* Offset */
 	void *dedicatedOffset, *clientOffset;
-	void *findDedicatedOffset, *findClientOffset;
 	unsigned int checksumDedicated, checksumClient;
 
 	/* State manipulation */

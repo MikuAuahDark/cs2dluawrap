@@ -41,8 +41,6 @@ LuaFunctionPointer luaFunction = {
 
 -- Dedicated & client address
 io.write("\t(void*) ", addressList.dedicated, "U, (void*) ", addressList.client, "U,\n")
--- Find matcher address
-io.write("\t(void*) ", addressList.findDedicated, "U, (void*) ", addressList.findClient, "U,\n")
 -- Match string
 io.write("\t", addressList.checksumDedicated, "U, ", addressList.checksumClient, "U,\n")
 

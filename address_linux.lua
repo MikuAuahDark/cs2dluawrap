@@ -3,9 +3,8 @@
 local l = {}
 local linuxData = {
 	-- base: 8048000
-	dedicated = 0x4030 --[[0x804C030]], client = 0x4030+0x5FB0, --[[0x8051FE0]]
 	-- Offset is relative to luaopen_debug
-	findDedicated = 0x3CDC10, findClient = 0x4D9F48,
+	dedicated = 0x4030 --[[0x804C030]], client = 0x4030+0x5FB0, --[[0x8051FE0]]
 	checksumDedicated = 0x4459B69C,
 	checksumClient = 0x12D24A2B,
 	functions = l
