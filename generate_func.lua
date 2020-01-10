@@ -100,6 +100,9 @@ end
 io.write("};\n\n")
 io.write("#ifndef CS2DLUAWRAP_NOFUNCDEF\n\n")
 
+-- It's important that these function won't work when wrapped
+local blacklist = {"lua_pushfstring", "luaL_error"}
+
 for _, line in ipairs(lines) do
 	local retType, name, paramList = line:match("^%s*/%*MATCHGEN%*/([^%)]+)%(%*([^%)]+)%)%s*%(([^%)]+)%);")
 
@@ -108,40 +111,50 @@ for _, line in ipairs(lines) do
 	name = trim(name)
 	paramList = trim(paramList)
 
-	local undef = not(addressList.functions[name])
-
-	-- Parameter list
-	local params = split(trim(paramList), ",")
-	local plist = {}
-	for i = 1, #params do
-		local p = trim(params[i])
-		if p ~= "void" then
-			local c = string.char(i + 96)
-			params[i] = p.." "..c
-			plist[#plist + 1] = c
-		else
-			params[i] = p
+	local isBlacklisted = false
+	for i = 1, #blacklist do
+		if blacklist[i] == name then
+			isBlacklisted = true
+			break
 		end
 	end
 
-	local useLuaLib = name:find("lua_") == nil
+	if not(isBlacklisted) then
+		local undef = not(addressList.functions[name])
 
-	if undef then
-		io.write("/*\n")
-	end
+		-- Parameter list
+		local params = split(trim(paramList), ",")
+		local plist = {}
+		for i = 1, #params do
+			local p = trim(params[i])
+			if p ~= "void" then
+				local c = string.char(i + 96)
+				params[i] = p.." "..c
+				plist[#plist + 1] = c
+			else
+				params[i] = p
+			end
+		end
 
-	-- Write function wrapper
-	io.write(useLuaLib and "LUALIB_API " or "LUA_API ", retType, " ", name, "(", table.concat(params, ", "), ")\n{\n")
-	if retType ~= "void" then
-		io.write("\treturn luaFunction.", name, "(", table.concat(plist, ", "), ");\n}\n")
-	else
-		io.write("\tluaFunction.", name, "(", table.concat(plist, ", "), ");\n}\n")
-	end
+		local useLuaLib = name:find("lua_") == nil
 
-	if undef then
-		io.write("*/\n\n")
-	else
-		io.write("\n")
+		if undef then
+			io.write("/*\n")
+		end
+
+		-- Write function wrapper
+		io.write(useLuaLib and "LUALIB_API " or "LUA_API ", retType, " ", name, "(", table.concat(params, ", "), ")\n{\n")
+		if retType ~= "void" then
+			io.write("\treturn luaFunction.", name, "(", table.concat(plist, ", "), ");\n}\n")
+		else
+			io.write("\tluaFunction.", name, "(", table.concat(plist, ", "), ");\n}\n")
+		end
+
+		if undef then
+			io.write("*/\n\n")
+		else
+			io.write("\n")
+		end
 	end
 end
 

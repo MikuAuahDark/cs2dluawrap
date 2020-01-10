@@ -58,7 +58,7 @@ LUA_API const char* lua_pushfstring(lua_State *L, const char *fmt, ...)
 	va_list va;
 
 	va_start(va, fmt);
-	r = lua_pushvfstring(L, fmt, va);
+	r = luaFunction.lua_pushvfstring(L, fmt, va);
 	va_end(va);
 	return r;
 }
@@ -67,11 +67,11 @@ LUALIB_API int luaL_error (lua_State *L, const char *fmt, ...)
 {
 	va_list argp;
 	va_start(argp, fmt);
-	luaL_where(L, 1);
-	lua_pushvfstring(L, fmt, argp);
+	luaFunction.luaL_where(L, 1);
+	luaFunction.lua_pushvfstring(L, fmt, argp);
 	va_end(argp);
-	lua_concat(L, 2);
-	return lua_error(L);
+	luaFunction.lua_concat(L, 2);
+	return luaFunction.lua_error(L);
 }
 
 /* Initialization */

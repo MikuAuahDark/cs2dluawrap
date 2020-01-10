@@ -85,6 +85,7 @@ typedef struct LuaFunctionPointer
 	/*MATCHGEN*/void       (*lua_pushlstring) (lua_State*, const char*, size_t);
 	/*MATCHGEN*/void       (*lua_pushstring) (lua_State*, const char*);
 	/*MATCHGEN*/const char*(*lua_pushvfstring) (lua_State*, const char*, va_list);
+	/*MATCHGEN*/const char*(*lua_pushfstring) (lua_State*, const char*, ...);
 	/*MATCHGEN*/void       (*lua_pushcclosure) (lua_State*, lua_CFunction, int);
 	/*MATCHGEN*/void       (*lua_pushboolean) (lua_State*, int);
 	/*MATCHGEN*/void       (*lua_pushlightuserdata) (lua_State*, void*);
@@ -172,6 +173,7 @@ typedef struct LuaFunctionPointer
 	/*MATCHGEN*/int        (*luaL_newmetatable) (lua_State*, const char*);
 	/*MATCHGEN*/void*      (*luaL_checkudata) (lua_State*, int, const char*);
 	/*MATCHGEN*/void       (*luaL_where) (lua_State*, int);
+	/*MATCHGEN*/int        (*luaL_error) (lua_State *, const char*, ...);
 	/*MATCHGEN*/int        (*luaL_checkoption) (lua_State*, int, const char*, const char* const*);
 	/*MATCHGEN*/int        (*luaL_ref) (lua_State*, int);
 	/*MATCHGEN*/void       (*luaL_unref) (lua_State*, int, int);
