@@ -127,6 +127,8 @@ LuaFunctionPointer luaFunction = {
 	/* luaL_pushresult */ (void(*)(luaL_Buffer*)) 21008U,
 };
 
+#ifndef CS2DLUAWRAP_NOFUNCDEF
+
 LUA_API lua_State* lua_newstate(lua_Alloc a, void* b)
 {
 	return luaFunction.lua_newstate(a, b);
@@ -727,3 +729,4 @@ LUALIB_API void luaL_pushresult(luaL_Buffer* a)
 	luaFunction.luaL_pushresult(a);
 }
 
+#endif /* CS2DLUAWRAP_NOFUNCDEF */

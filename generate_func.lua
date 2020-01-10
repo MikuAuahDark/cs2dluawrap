@@ -98,7 +98,7 @@ for _, line in ipairs(lines) do
 end
 
 io.write("};\n\n")
-io.write("#ifndef CS2DLUAWRAP_NOFUNCDEF")
+io.write("#ifndef CS2DLUAWRAP_NOFUNCDEF\n\n")
 
 for _, line in ipairs(lines) do
 	local retType, name, paramList = line:match("^%s*/%*MATCHGEN%*/([^%)]+)%(%*([^%)]+)%)%s*%(([^%)]+)%);")

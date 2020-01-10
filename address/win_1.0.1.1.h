@@ -71,18 +71,18 @@ LuaFunctionPointer luaFunction = {
 	/* lua_error */ (int(*)(lua_State*)) 10320U,
 	/* lua_next */ (int(*)(lua_State*, int)) 10352U,
 	/* lua_concat */ (void(*)(lua_State*, int)) 10432U,
-	/* lua_getallocf */ (lua_Alloc(*)(lua_State*, void**)) 2147483647U,
-	/* lua_setallocf */ (void(*)(lua_State*, lua_Alloc,void*)) 2147483647U,
+	/* lua_getallocf */ (lua_Alloc(*)(lua_State*, void**)) 10608U,
+	/* lua_setallocf */ (void(*)(lua_State*, lua_Alloc,void*)) 10656U,
 	/* lua_getstack */ (int(*)(lua_State*, int, lua_Debug*)) 12544U,
 	/* lua_getinfo */ (int(*)(lua_State*, const char*, lua_Debug*)) 15104U,
-	/* lua_getlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 2147483647U,
-	/* lua_setlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 2147483647U,
-	/* lua_getupvalue */ (const char*(*)(lua_State*, int, int)) 2147483647U,
-	/* lua_setupvalue */ (const char*(*)(lua_State*, int, int)) 2147483647U,
-	/* lua_sethook */ (int(*)(lua_State*, lua_Hook, int, int)) 2147483647U,
-	/* lua_gethook */ (lua_Hook(*)(lua_State*)) 2147483647U,
-	/* lua_gethookmask */ (int(*)(lua_State*)) 2147483647U,
-	/* lua_gethookcount */ (int(*)(lua_State*)) 2147483647U,
+	/* lua_getlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 12864U,
+	/* lua_setlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 12960U,
+	/* lua_getupvalue */ (const char*(*)(lua_State*, int, int)) 10896U,
+	/* lua_setupvalue */ (const char*(*)(lua_State*, int, int)) 10976U,
+	/* lua_sethook */ (int(*)(lua_State*, lua_Hook, int, int)) 12432U,
+	/* lua_gethook */ (lua_Hook(*)(lua_State*)) 12496U,
+	/* lua_gethookmask */ (int(*)(lua_State*)) 12512U,
+	/* lua_gethookcount */ (int(*)(lua_State*)) 12528U,
 	/* luaopen_base */ (int(*)(lua_State*)) 48512U,
 	/* luaopen_table */ (int(*)(lua_State*)) 39920U,
 	/* luaopen_io */ (int(*)(lua_State*)) 37216U,
@@ -126,6 +126,8 @@ LuaFunctionPointer luaFunction = {
 	/* luaL_addvalue */ (void(*)(luaL_Buffer*)) 3280U,
 	/* luaL_pushresult */ (void(*)(luaL_Buffer*)) 2688U,
 };
+
+#ifndef CS2DLUAWRAP_NOFUNCDEF
 
 LUA_API lua_State* lua_newstate(lua_Alloc a, void* b)
 {
@@ -457,19 +459,15 @@ LUA_API void lua_concat(lua_State* a, int b)
 	luaFunction.lua_concat(a, b);
 }
 
-/*
 LUA_API lua_Alloc lua_getallocf(lua_State* a, void** b)
 {
 	return luaFunction.lua_getallocf(a, b);
 }
-*/
 
-/*
 LUA_API void lua_setallocf(lua_State* a, lua_Alloc b, void* c)
 {
 	luaFunction.lua_setallocf(a, b, c);
 }
-*/
 
 LUA_API int lua_getstack(lua_State* a, int b, lua_Debug* c)
 {
@@ -481,61 +479,45 @@ LUA_API int lua_getinfo(lua_State* a, const char* b, lua_Debug* c)
 	return luaFunction.lua_getinfo(a, b, c);
 }
 
-/*
 LUA_API const char* lua_getlocal(lua_State* a, const lua_Debug* b, int c)
 {
 	return luaFunction.lua_getlocal(a, b, c);
 }
-*/
 
-/*
 LUA_API const char* lua_setlocal(lua_State* a, const lua_Debug* b, int c)
 {
 	return luaFunction.lua_setlocal(a, b, c);
 }
-*/
 
-/*
 LUA_API const char* lua_getupvalue(lua_State* a, int b, int c)
 {
 	return luaFunction.lua_getupvalue(a, b, c);
 }
-*/
 
-/*
 LUA_API const char* lua_setupvalue(lua_State* a, int b, int c)
 {
 	return luaFunction.lua_setupvalue(a, b, c);
 }
-*/
 
-/*
 LUA_API int lua_sethook(lua_State* a, lua_Hook b, int c, int d)
 {
 	return luaFunction.lua_sethook(a, b, c, d);
 }
-*/
 
-/*
 LUA_API lua_Hook lua_gethook(lua_State* a)
 {
 	return luaFunction.lua_gethook(a);
 }
-*/
 
-/*
 LUA_API int lua_gethookmask(lua_State* a)
 {
 	return luaFunction.lua_gethookmask(a);
 }
-*/
 
-/*
 LUA_API int lua_gethookcount(lua_State* a)
 {
 	return luaFunction.lua_gethookcount(a);
 }
-*/
 
 LUALIB_API int luaopen_base(lua_State* a)
 {
@@ -747,3 +729,4 @@ LUALIB_API void luaL_pushresult(luaL_Buffer* a)
 	luaFunction.luaL_pushresult(a);
 }
 
+#endif /* CS2DLUAWRAP_NOFUNCDEF */
