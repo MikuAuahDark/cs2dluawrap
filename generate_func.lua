@@ -98,6 +98,7 @@ for _, line in ipairs(lines) do
 end
 
 io.write("};\n\n")
+io.write("#ifndef CS2DLUAWRAP_NOFUNCDEF")
 
 for _, line in ipairs(lines) do
 	local retType, name, paramList = line:match("^%s*/%*MATCHGEN%*/([^%)]+)%(%*([^%)]+)%)%s*%(([^%)]+)%);")
@@ -143,3 +144,5 @@ for _, line in ipairs(lines) do
 		io.write("\n")
 	end
 end
+
+io.write("#endif /* CS2DLUAWRAP_NOFUNCDEF */\n")
