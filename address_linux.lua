@@ -129,5 +129,9 @@ l.lua_getlocal = 0x92E0 --[[0x8055310]]
 l.lua_setlocal = 0x9340 --[[0x8055370]]
 l.lua_getupvalue = 0x8710 --[[0x8054740]]
 l.lua_setupvalue = 0x8780 --[[0x80547b0]]
+l.lua_sethook = 0x91F0 --[[0x8055220]]
+l.lua_gethookcount = 0x9250 --[[0x8055280]]
+l.lua_gethook = 0x9230 --[[0x8055260]]
+l.lua_gethookmask = 0x9240 --[[0x8055270]]
 
 return linuxData

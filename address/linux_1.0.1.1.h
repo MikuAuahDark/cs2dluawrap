@@ -80,10 +80,10 @@ LuaFunctionPointer luaFunction = {
 	/* lua_setlocal */ (const char*(*)(lua_State*, const lua_Debug*, int)) 37696U,
 	/* lua_getupvalue */ (const char*(*)(lua_State*, int, int)) 34576U,
 	/* lua_setupvalue */ (const char*(*)(lua_State*, int, int)) 34688U,
-	/* lua_sethook */ (int(*)(lua_State*, lua_Hook, int, int)) 2147483647U,
-	/* lua_gethook */ (lua_Hook(*)(lua_State*)) 2147483647U,
-	/* lua_gethookmask */ (int(*)(lua_State*)) 2147483647U,
-	/* lua_gethookcount */ (int(*)(lua_State*)) 2147483647U,
+	/* lua_sethook */ (int(*)(lua_State*, lua_Hook, int, int)) 37360U,
+	/* lua_gethook */ (lua_Hook(*)(lua_State*)) 37424U,
+	/* lua_gethookmask */ (int(*)(lua_State*)) 37440U,
+	/* lua_gethookcount */ (int(*)(lua_State*)) 37456U,
 	/* luaopen_base */ (int(*)(lua_State*)) 28128U,
 	/* luaopen_table */ (int(*)(lua_State*)) 2464U,
 	/* luaopen_io */ (int(*)(lua_State*)) 17296U,
@@ -498,33 +498,25 @@ LUA_API const char* lua_setupvalue(lua_State* a, int b, int c)
 	return luaFunction.lua_setupvalue(a, b, c);
 }
 
-/*
 LUA_API int lua_sethook(lua_State* a, lua_Hook b, int c, int d)
 {
 	return luaFunction.lua_sethook(a, b, c, d);
 }
-*/
 
-/*
 LUA_API lua_Hook lua_gethook(lua_State* a)
 {
 	return luaFunction.lua_gethook(a);
 }
-*/
 
-/*
 LUA_API int lua_gethookmask(lua_State* a)
 {
 	return luaFunction.lua_gethookmask(a);
 }
-*/
 
-/*
 LUA_API int lua_gethookcount(lua_State* a)
 {
 	return luaFunction.lua_gethookcount(a);
 }
-*/
 
 LUALIB_API int luaopen_base(lua_State* a)
 {
