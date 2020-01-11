@@ -135,7 +135,7 @@ static int cs2dlua_init(size_t baseAddress, FILE *exe)
 	unsigned int crcExe = 0xFFFFFFFF;
 	short *pattern = NULL;
 	size_t *luaFuncPtr;
-	size_t i = ((size_t) &luaFunction.lua_newstate) - ((size_t) &luaFunction) / sizeof(void*);
+	size_t i = (((size_t) &luaFunction.lua_newstate) - ((size_t) &luaFunction)) / sizeof(void*);
 
 	/* If match field is NULL that means it's initialized */
 	if (initialized != 0)
