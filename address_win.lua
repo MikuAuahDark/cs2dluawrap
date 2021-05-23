@@ -5,8 +5,8 @@ local winData = {
 	-- base: 0x400000
 	-- Offset is relative to luaL_where
 	dedicated = 0x1510, client = 0x1510,
-	checksumDedicated = 0xD5D6574A,
-	checksumClient = 0xB396BE59,
+	checksumDedicated = 0xF8E3BE07,
+	checksumClient = 0x3321BA30,
 	functions = w,
 }
 w.luaL_where = 0x0 --[[0x401510]]

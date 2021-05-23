@@ -35,13 +35,13 @@
 /* Platform selection */
 #if defined(_WIN32)
 #	define CS2DLUA_TARGET_WIN
-#	include "address/win_1.0.1.1.h"
+#	include "address/win_1.0.1.2.h"
 #elif defined(__APPLE__)
 #	define CS2DLUA_TARGET_MAC
 #	error "Patches welcome for macOS!"
 #else
 #	define CS2DLUA_TARGET_LINUX
-#	include "address/linux_1.0.1.1.h"
+#	include "address/linux_1.0.1.2.h"
 #endif
 
 /* CS2D is 32-bit only in Windows and Linux */
