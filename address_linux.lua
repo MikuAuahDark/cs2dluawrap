@@ -5,8 +5,8 @@ local linuxData = {
 	-- base: 8048000
 	-- Offset is relative to luaopen_debug
 	dedicated = 0x4030 --[[0x804C030]], client = 0x4030+0x5FB0, --[[0x8051FE0]]
-	checksumDedicated = 0x1DF92AEF,
-	checksumClient = 0x0DF8864F,
+	checksumDedicated = 0x9B872A51,
+	checksumClient = 0x90AD2B43,
 	functions = l
 }
 l.luaopen_debug = 0x0 --[[0x804C030]]
